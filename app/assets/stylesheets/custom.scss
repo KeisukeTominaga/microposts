@@ -93,7 +93,13 @@ input {
   height: auto !important;
 }
 
-
+/* Update and Delete button */
+.same-as-form {
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+  height: auto !important;
+}
 
 
 #error_explanation {
