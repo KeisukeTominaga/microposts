@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  #ログインしているか確認
   before_action :logged_in_user?, only: [:edit, :update, :destroy]
   
   def new
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
       
+      #sitnup後自動的にログイン
       session[:user_id] = @user.id
       flash[:success]= "logged in as #{@user.name}"
 
