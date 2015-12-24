@@ -13,6 +13,9 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
       
+      session[:user_id] = @user.id
+      flash[:success]= "logged in as #{@user.name}"
+
     else
       render 'new'
     end
@@ -23,19 +26,32 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+      @user = User.find(params[:id])
+      if current_user == @user
+        render "edit"
+      else
+        flash[:danger] = "不正なアクセス"
+        redirect_to root_path
+      end
   end
   
   def update
     @user = User.find(params[:id])
     if current_user == @user
-      @user.update(user_params)
-      flash[:success] = "Your profile has been updated"
-      redirect_to @user
+      
+      if @user.update(user_params)
+        flash[:success] = "Your profile has been updated"
+        redirect_to @user
+      else
+        render "edit"
+      end
+      
     else
-      render "edit"
+      flash[:danger] = "不正なアクセス"
+      redirect_to root_path
     end
   end
+    
     
   def destroy
     @user = User.find(params[:id])
@@ -43,6 +59,9 @@ class UsersController < ApplicationController
         @user.destroy
         flash[:success] = "Your account has been deleted"
         redirect_to root_url
+    else
+      flash[:danger] = "不正なアクセス"
+      redirect_to root_path
     end
   end
     
