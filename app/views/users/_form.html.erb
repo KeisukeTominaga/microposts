@@ -1,4 +1,4 @@
-<div class="row">
+<div class="container">
   <div class="col-md-6 col-md-offset-3">
     
     <%= form_for @user do |f| %>
@@ -11,9 +11,15 @@
       <%= f.label :email %>
       <%= f.text_field :email, class: "form-control" %>
       
-      <%= f.label :gender %><br>
-      Male: <%= f.radio_button :gender, "male", class: "form-horizontal form-inline" %>
-      Female: <%= f.radio_button :gender, "female", class: "form-horizontal form-inline" %>
+      <div class="form-group">
+        <p><%= f.label :gender %></p>
+          <div class="radio-inline">
+            <label>Male:</label><%= f.radio_button :gender, "male" %>
+          </div>
+          <div class="radio-inline">          
+            <label>Female:</label><%= f.radio_button :gender, "female" %>
+          </div>
+      </div>
       
       <%= f.label :address %>
       <%= f.text_field :address, class: "form-control" %>

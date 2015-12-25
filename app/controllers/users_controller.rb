@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         render "edit"
       else
         flash[:danger] = "不正なアクセス"
-        redirect_to root_path
+        redirect_to root_path, alert: "bad request"
       end
   end
   
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :gender, :address, :password, :password_confirmation)
   end
   
   

@@ -13,6 +13,19 @@
       <% flash.each do | message_type, message |%>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
+
+<!--
+    <% if flash[:alert] == "danger" %>
+      <div class="alert alert-danger">
+        <strong>Danger!</strong>
+      </div>
+    <% elsif flash[:alert] == "success" %>
+      <div class="alert alert-success">
+        <strong>Success!</strong>
+      </div>
+
+    <% end %>
+-->      
       <%= yield %>
     </div>
 </body>
