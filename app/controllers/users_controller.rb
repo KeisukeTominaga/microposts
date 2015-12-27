@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #ログインしているか確認
-  before_action :logged_in_user?, only: [:edit, :update, :destroy]
+  before_action :logged_in_user?, only: [ :edit, :update, :destroy]
   
   def new
     @user = User.new
@@ -40,13 +40,13 @@ class UsersController < ApplicationController
   end
   
   def edit
-      @user = User.find(params[:id])
-      if current_user == @user
-        render "edit"
-      else
-        flash[:danger] = "不正なアクセス"
-        redirect_to root_path
-      end
+    @user = User.find(params[:id])
+    if current_user == @user
+      render "edit"
+    else
+      flash[:danger] = "不正なアクセス"
+      redirect_to root_path
+    end
   end
   
   def update
