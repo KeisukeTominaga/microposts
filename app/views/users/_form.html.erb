@@ -14,10 +14,10 @@
       <div class="form-group">
         <p><%= f.label :gender %></p>
         <%= f.label("", class: "radio-inline") do %>
-          <%= f.radio_button :gender, true, { checked: !f.object.gender } %>Mail
+          <%= f.radio_button :gender, true, { checked: f.object.gender } %>Mail
         <% end %>
         <%= f.label("", class: "radio-inline") do %>
-          <%= f.radio_button :gender, false, { checked: f.object.gender } %>Female
+          <%= f.radio_button :gender, false, { checked: !f.object.gender } %>Female
         <% end %>
       </div>
 <!--      
