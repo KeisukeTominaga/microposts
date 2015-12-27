@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         render "edit"
       else
         flash[:danger] = "不正なアクセス"
-        redirect_to root_path, alert: "bad request"
+        redirect_to root_path
       end
   end
   
