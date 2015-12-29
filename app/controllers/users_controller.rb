@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   #ログインしているか確認
-  before_action :logged_in_user?, only: [ :edit, :update, :destroy]
-  
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
   def new
     @user = User.new
   end
@@ -40,6 +39,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    #binding.pry
     @user = User.find(params[:id])
     if current_user == @user
       render "edit"
