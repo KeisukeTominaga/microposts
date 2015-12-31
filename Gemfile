@@ -25,10 +25,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass'
 
+#gem 'twitter-bootstrap-rails'
+
+#gem 'therubyracer'
+
+#gem 'less-rails'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry-byebug', group: :development
+
+gem 'kaminari'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

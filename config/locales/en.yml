@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  
+  
+
+  helpers:
+    submit:
+      Create my account: "Create new account"

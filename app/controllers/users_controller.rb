@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     if current_user == @user
       render "edit"
     else
-      flash[:danger] = "不正なアクセス"
+      flash[:danger] = "You do not have permission"
       redirect_to root_path
     end
   end
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
       end
       
     else
-      flash[:danger] = "不正なアクセス"
+      flash[:danger] = "You do not have permission"
       redirect_to root_path
     end
   end
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
         flash[:success] = "Your account has been deleted"
         redirect_to root_url
     else
-      flash[:danger] = "不正なアクセス"
+      flash[:danger] = "You do not have permission"
       redirect_to root_path
     end
   end

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  #match '/:locale' => 'static_pages#home', via: [ :get]
   root to: 'static_pages#home'
+  
+  #match 'signup/:locale' => 'users#new', via: [ :get]
   get 'signup', to: 'users#new'
   
   get "login", to: 'sessions#new'
@@ -19,6 +22,32 @@ Rails.application.routes.draw do
   resources :microposts
   
   resources :relationships, only: [:create, :destroy]
+  
+  #scope '(:locale)', locale: /ja|en/ do
+  #  resources :users, param: :slug
+  #end
+
+  #scope '(:locale)', locale: /ja|en/ do
+  #  resources :sessions, param: :slug
+  #end
+
+
+  scope "(:locale)", locale: /ja|en/ do
+   resources :users
+   match ':controller(/:action(/:id))', via: [ :get ]
+  end
+
+  scope "(:locale)", locale: /ja|en/ do
+   resources :users
+   match ':controller(/:action)', via: [ :get ]
+  end
+
+  scope "(:locale)", locale: /ja|en/ do
+   resources :sessions
+   match ':controller(/:action(/:id))', via: [ :get ]
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

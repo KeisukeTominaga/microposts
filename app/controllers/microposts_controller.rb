@@ -11,6 +11,7 @@ class MicropostsController < ApplicationController
         redirect_to root_url
     else
         @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
+        @paginate_items = @feed_items.page(params[:page])
         render "static_pages/home"
     end
   end
