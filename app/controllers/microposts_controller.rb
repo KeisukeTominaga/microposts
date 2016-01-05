@@ -4,6 +4,10 @@ class MicropostsController < ApplicationController
   def index
   end
   
+  def show
+    @micropost = Micropost.find(params[:id])
+  end
+  
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save

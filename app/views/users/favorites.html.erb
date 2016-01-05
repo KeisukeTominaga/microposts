@@ -1,0 +1,36 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+
+
+  <div class="col-md-8">
+
+    <h3>Favorite microposts(<%= @favorites.count %>)</h3>
+      <div class="container-fluid">
+        <div class="microposts">
+          <%= render @favorites %>
+          <!--
+          <% @favorites.each do |f| %>
+            <div class="col-xs-10 col-sm-6 col-md-2" style="margin:20px"><%= link_to gravatar_for(f.user, size: 50), f.user %><br>
+            <%= link_to f.user.name, f %>
+            </div>
+          <% end %>
+          -->
+          
+        </div>
+      </div>
+  </div>
+  
+</div>
+  
+  
+
+  
+  
+

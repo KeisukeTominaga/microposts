@@ -226,6 +226,7 @@ ja:
     setting: "設定"
     followings: "フォロー"
     followers: "フォロアー"
+    favorites: "お気に入り"
     Log out: "ログアウト"
     
   activerecord: &activerecord

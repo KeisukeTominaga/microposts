@@ -1,0 +1,4 @@
+<div class="microposts content">
+  <%= @micropost.content %>
+  <%= render "users/favorite_form" if logged_in? %>
+</div>

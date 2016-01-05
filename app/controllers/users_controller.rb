@@ -38,6 +38,11 @@ class UsersController < ApplicationController
     @follower = current_user.follower_users.all
   end
   
+  def favorites
+    @user = User.find(params[:id])
+    @favorites = current_user.favorite_microposts.all
+  end
+  
   def edit
     #binding.pry
     @user = User.find(params[:id])
