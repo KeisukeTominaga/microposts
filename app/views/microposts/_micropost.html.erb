@@ -5,7 +5,7 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user == micropost.user %>
-      
+      <%= link_to "edit", edit_micropost_path(micropost), class: "btn btn-xs btn-primary" %>
       <%= link_to "delete", micropost, method: :delete, data: { confirm: "Are you sure?" }, 
                             class: "btn btn-xs btn-warning" %>
       
