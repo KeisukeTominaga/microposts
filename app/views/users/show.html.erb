@@ -6,7 +6,16 @@
         <%= @user.name %>
       </h1>
     </section>
+    <div class="row"> 
+      <section class="col-md-6">
+        <% if current_user == @user %>
+          <%= link_to "Edit your account", edit_user_path(@user), class: "btn btn-large btn-primary same-as-form" %>
+          <%= link_to "Delete your account", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-large btn-primary same-as-form" %>
+        <% end %>
+      </section>
+    </div>
   </aside>
+ 
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
@@ -17,11 +26,3 @@
     <% end %>
   </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <% if current_user == @user %>
-      <%= link_to "Edit your account", edit_user_path(@user), class: "btn btn-large btn-primary same-as-form" %>
-      <%= link_to "Delete your account", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-large btn-primary same-as-form" %>
-    <% end %>
-  </div>
-</div>
